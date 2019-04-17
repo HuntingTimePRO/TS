@@ -21,9 +21,10 @@ eval "while true; do sleep ${AWS_SYNC_INTERVAL:-60}; bin/sync; done &"
 sync_pid=$!
 
 echo "Starting: terraria ${terraria_port}"
+ls world
 eval "screen -S terraria -m \
-    mono-sgen tshock/TerrariaServer.exe -port ${port} \
-    -world \"world/sync.wld\" \\ "
+    mono-sgen tshock/TerrariaServer.exe \
+    -world \"world/sync.wld\" "
 main_pid=$!
 
 # Flush the logfile every second, and ensure that the logfile exists
