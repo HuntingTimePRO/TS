@@ -72,6 +72,7 @@ unzip tshock.zip -d $BUILD_DIR/tshock > /dev/null 2>&1
 echo "done"
 
 mkdir -p $BUILD_DIR/bin
+[ ! -f $BUILD_DIR/terraria ]   && cp $OPT_DIR/terraria $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/sync ]        && cp $OPT_DIR/sync $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/index.rhtml ] && cp $OPT_DIR/index.rhtml $BUILD_DIR
 
