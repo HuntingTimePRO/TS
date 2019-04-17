@@ -1,0 +1,32 @@
+{
+  "name": "Tshock",
+  "description": "Tshock",
+  "keywords": [
+    "games",
+    "terraria"
+  ],
+  "repository": "https://github.com/lsaa/heroku-tshock-buildpack",
+  "env": {
+    "NGROK_API_TOKEN": {
+      "description": "Your personal ngrok API token",
+      "required": true
+    },
+    "AWS_BUCKET": {
+      "description": "S3 Bucket to store your server state (you will lose your games when the server restarts if you don't do this)",
+      "required": false
+    },
+    "AWS_ACCESS_KEY": {
+      "description": "The AWS access key for the S3 Bucket",
+      "required": false
+    },
+    "AWS_SECRET_KEY": {
+      "description": "The AWS secret key for the S3 Bucket",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku-community/inline"
+    }
+  ]
+}
