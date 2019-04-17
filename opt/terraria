@@ -21,7 +21,7 @@ eval "while true; do sleep ${AWS_SYNC_INTERVAL:-60}; bin/sync; done &"
 sync_pid=$!
 
 echo "Starting: terraria ${terraria_port}"
-eval "screen -S terrarias-A -m \
+eval "screen -S terraria -m \
     mono-sgen tshock/TerrariaServer.exe \
     -world \"world/sync.wld\" \\ "
 main_pid=$!
