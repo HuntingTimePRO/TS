@@ -22,7 +22,7 @@ if [ -n "$DROPBOX_ACCESS_TOKEN" ]; then
 OAUTH_ACCESS_TOKEN=${DROPBOX_ACCESS_TOKEN}
 EOF
   if [ -d world ]; then
-    tar -czvf backup.tar.gz world tshock
+    tar -czvf backup.tar.gz world tshock/tshock tshock/ServerPlugins
     bin/dropbox_uploader.sh upload backup.tar.gz /
     rm backup.tar.gz
   else
