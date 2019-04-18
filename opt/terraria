@@ -5,9 +5,9 @@ port=${1:-${PORT:-8080}}
 
 # Start the TCP tunnel
 if [ -z "$HOST_DOMAIN" ]; then
-  serveo_cmd="ssh -o StrictHostKeyChecking=no -R terraria:7777:localhost:${terraria_port} serveo.net -i terraria"
+  serveo_cmd="ssh -o StrictHostKeyChecking=no -R terraria:7777:localhost:${terraria_port} serveo.net -i trr"
 else
-  serveo_cmd="ssh -o StrictHostKeyChecking=no -R ${HOST_DOMAIN}:7777:localhost:${terraria_port} serveo.net -i terraria"
+  serveo_cmd="ssh -o StrictHostKeyChecking=no -R ${HOST_DOMAIN}:7777:localhost:${terraria_port} serveo.net -i trr"
 fi
 
 echo "Starting serveo..."
