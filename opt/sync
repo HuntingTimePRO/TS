@@ -1,22 +1,5 @@
 #!/usr/bin/env bash
 
-if [ -n "$AWS_BUCKET" ]; then
-  cat << EOF > .s3cfg
-[default]
-access_key = ${AWS_ACCESS_KEY}
-secret_key = ${AWS_SECRET_KEY}
-EOF
-  if [ -d world ]; then
-    s3cmd sync world/ s3://${AWS_BUCKET}/world/
-  else
-    mkdir -p world
-    cd world
-    s3cmd get --recursive s3://${AWS_BUCKET}/world/
-    cd ..
-  fi
-  rm .s3cfg
-fi
-
 if [ -n "$DROPBOX_ACCESS_TOKEN" ]; then
   cat << EOF > .dropbox_uploader
 OAUTH_ACCESS_TOKEN=${DROPBOX_ACCESS_TOKEN}
@@ -33,4 +16,21 @@ EOF
     fi
   fi
   rm .dropbox_uploader
+fi
+
+if [ -n "$AWS_BUCKET" ]; then
+  cat << EOF > .s3cfg
+[default]
+access_key = ${AWS_ACCESS_KEY}
+secret_key = ${AWS_SECRET_KEY}
+EOF
+  if [ -d world ]; then
+    s3cmd sync world/ s3://${AWS_BUCKET}/world/
+  else
+    mkdir -p world
+    cd world
+    s3cmd get --recursive s3://${AWS_BUCKET}/world/
+    cd ..
+  fi
+  rm .s3cfg
 fi
