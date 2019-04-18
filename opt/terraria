@@ -3,15 +3,15 @@
 terraria_port=7777
 port=${1:-${PORT:-8080}}
 
-if [ -z "$NGROK_API_TOKEN" ]; then
-  echo "You must set the NGROK_API_TOKEN config var to create a TCP tunnel!"
-  exit 1
+# Start the TCP tunnel
+if [ -z "$HOST_DOMAIN" ]; then
+  serveo_cmd="ssh -o StrictHostKeyChecking=no -R terraria:7777:localhost:${terraria_port} serveo.net -i terraria"
+else
+  serveo_cmd="ssh -o StrictHostKeyChecking=no -R ${HOST_DOMAIN}:7777:localhost:${terraria_port} serveo.net -i terraria"
 fi
 
-# Start the TCP tunnel
-ngrok_cmd="bin/ngrok tcp -authtoken $NGROK_API_TOKEN -log stdout --log-level debug ${NGROK_OPTS} ${terraria_port}"
-echo "Starting ngrok..."
-eval "$ngrok_cmd | tee ngrok.log &"
+echo "Starting serveo..."
+eval "$serveo_cmd | tee serveo.log &"
 ngrok_pid=$!
 
 # Do an inline sync first, then start the background job
