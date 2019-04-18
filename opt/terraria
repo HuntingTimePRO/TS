@@ -22,7 +22,7 @@ sync_pid=$!
 
 echo "Starting: terraria ${terraria_port}"
 ls world
-eval "screen -S terraria -m mono-sgen tshock/TerrariaServer.exe -world world/sync.wld -autocreate 2 -worldname sync -worldpath ./world"
+screen -S terraria -m mono-sgen tshock/TerrariaServer.exe -world world/sync.wld -autocreate 2 -worldname sync -worldpath ./world
 main_pid=$!
 
 # Flush the logfile every second, and ensure that the logfile exists
