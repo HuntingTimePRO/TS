@@ -81,7 +81,12 @@ mv dropbox_uploader.sh $BUILD_DIR/bin
 echo "done"
 
 echo -n "-----> Installing Requests... "
-python -m pip install requests
+mkdir -p requests
+curl -o requests.tar.gz -L https://github.com/requests/requests/tarball/master
+tar -xzvf requests.tar.gz -C requests --strip-components=1
+python requests/setup.py install
+rm -r requests
+rm requests.tar.gz
 echo "done"
 
 mkdir -p $BUILD_DIR/bin
