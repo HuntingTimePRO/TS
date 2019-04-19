@@ -83,7 +83,7 @@ mv dropbox_uploader.sh $BUILD_DIR/bin
 echo "done"
 
 echo -n "-----> Installing Requests... "
-python -m pip install requests
+pip install requests
 echo "done"
 
 mkdir -p $BUILD_DIR/bin
