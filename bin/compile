@@ -80,6 +80,10 @@ curl --silent -o dropbox_uploader.sh -L "https://raw.githubusercontent.com/andre
 mv dropbox_uploader.sh $BUILD_DIR/bin
 echo "done"
 
+echo -n "-----> Installing Requests... "
+pip install requests
+echo "done"
+
 mkdir -p $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/terraria ]   && cp $OPT_DIR/terraria $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/sync ]        && cp $OPT_DIR/sync $BUILD_DIR/bin
