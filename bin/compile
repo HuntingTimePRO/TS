@@ -36,7 +36,7 @@ mkdir -p "$APT_STATE_DIR/lists/partial"
 
 echo "-----> Installing pip... "
 apt-get $APT_OPTIONS update | indent
-apt-get $APT_OPTIONS -y --force-yes -d install --reinstall python3-pip | indent
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py
 echo "-----> Installing sqlite3... "
 apt-get $APT_OPTIONS -y --force-yes -d install --reinstall sqlite3 | indent
 apt-get $APT_OPTIONS -y --force-yes -d install --reinstall libsqlite3-dev | indent
@@ -83,7 +83,7 @@ mv dropbox_uploader.sh $BUILD_DIR/bin
 echo "done"
 
 echo -n "-----> Installing Requests... "
-pip install requests
+python -m pip install requests
 echo "done"
 
 mkdir -p $BUILD_DIR/bin
