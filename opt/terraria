@@ -14,6 +14,10 @@ echo "Starting serveo..."
 eval "$serveo_cmd | tee serveo.log &"
 ngrok_pid=$!
 
+echo "Starting AntiIdle..."
+eval "python bin/no_sleep.py"
+antiIdle_pid=$!
+
 # Do an inline sync first, then start the background job
 echo "Starting sync..."
 bin/sync
