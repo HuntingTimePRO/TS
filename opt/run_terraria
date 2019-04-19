@@ -1,0 +1,1 @@
+screen -S terraria -m mono-sgen tshock/TerrariaServer.exe -world world/sync.wld -autocreate 2 -worldname sync -worldpath ./world
