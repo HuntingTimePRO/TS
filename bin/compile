@@ -80,6 +80,7 @@ mkdir -p $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/terraria ]   && cp $OPT_DIR/terraria $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/sync ]        && cp $OPT_DIR/sync $BUILD_DIR/bin
 [ ! -f $BUILD_DIR/index.rhtml ] && cp $OPT_DIR/index.rhtml $BUILD_DIR
+[ ! -f $BUILD_DIR/run_terraria ] && cp $OPT_DIR/run_terraria $BUILD_DIR
 
 chmod +x $BUILD_DIR/bin/terraria
 chmod +x $BUILD_DIR/bin/sync
