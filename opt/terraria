@@ -22,7 +22,7 @@ sync_pid=$!
 
 echo "Starting: terraria ${terraria_port}"
 ls world
-script run_terraria
+script /app/bin/run_terraria
 main_pid=$!
 
 # Flush the logfile every second, and ensure that the logfile exists
