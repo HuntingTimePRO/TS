@@ -15,7 +15,7 @@ eval "$serveo_cmd | tee serveo.log &"
 ngrok_pid=$!
 
 echo "Starting AntiIdle..."
-eval "python no_sleep.py"
+eval "screen -S antiIdle -dm python no_sleep.py"
 antiIdle_pid=$!
 
 # Do an inline sync first, then start the background job
@@ -26,7 +26,7 @@ sync_pid=$!
 
 echo "Starting: terraria ${terraria_port}"
 ls world
-script /app/bin/run_terraria
+bash /app/bin/run_terraria
 main_pid=$!
 
 # Flush the logfile every second, and ensure that the logfile exists
